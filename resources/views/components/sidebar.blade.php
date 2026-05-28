@@ -20,6 +20,7 @@
         @php
             $menu = [
                 ['url' => '/dashboard', 'icon' => 'fa-home', 'label' => 'Dashboard'],
+                ['url' => '/devices', 'icon' => 'fa-temperature-half', 'label' => 'Perangkat'],
                 ['url' => '/monitoring', 'icon' => 'fa-chart-line', 'label' => 'Monitoring'],
                 ['url' => '/maggot', 'icon' => 'fa-database', 'label' => 'Data Maggot'],
                 ['url' => '/edukasi', 'icon' => 'fa-book', 'label' => 'Edukasi'],
@@ -28,7 +29,7 @@
         @endphp
 
         @foreach($menu as $item)
-            <a href="{{ $item['url'] }}" 
+            <a href="{{ $item['url'] }}"
                class="flex items-center gap-4 px-4 h-12 rounded-xl transition-all duration-200 group {{ request()->is(ltrim($item['url'], '/').'*') ? 'bg-[#0D3B16] text-white shadow-lg shadow-[#0D3B16]/20' : 'text-gray-500 hover:text-[#0D3B16] hover:bg-gray-50' }}">
                 <i class="fa {{ $item['icon'] }} w-5 text-center transition-colors"></i>
                 <span class="text-sm font-semibold tracking-wide">{{ $item['label'] }}</span>
@@ -59,7 +60,7 @@
     // Event listener untuk buka tutup sidebar
     menuToggle.addEventListener('click', toggleSidebar);
     overlay.addEventListener('click', toggleSidebar);
-    
+
     // Tambahan fungsi close via tombol (X)
     if(closeSidebarBtn) {
         closeSidebarBtn.addEventListener('click', toggleSidebar);
